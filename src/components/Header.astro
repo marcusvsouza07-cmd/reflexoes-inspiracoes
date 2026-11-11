@@ -1,0 +1,42 @@
+---
+import DarkModeToggle from './DarkModeToggle.astro';
+
+const links = [
+  { href: '/', label: 'Início' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/sobre', label: 'Sobre' },
+  { href: '/contato', label: 'Contato' }
+];
+---
+
+<header class="sticky top-0 z-50 bg-white/80 dark:bg-gray-950/80 backdrop-blur border-b border-gray-200 dark:border-gray-800">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="flex items-center justify-between h-16">
+
+      <a
+        href="/"
+        class="text-xl font-bold text-indigo-600 dark:text-indigo-400"
+      >
+        Reflexões & Inspirações
+      </a>
+
+      <nav class="hidden md:flex items-center gap-6">
+        {
+          links.map((link) => (
+            <a
+              href={link.href}
+              class="text-sm font-medium text-gray-700 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400 transition-colors"
+            >
+              {link.label}
+            </a>
+          ))
+        }
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <DarkModeToggle />
+      </div>
+
+    </div>
+  </div>
+</header>
